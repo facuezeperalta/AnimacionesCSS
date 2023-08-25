@@ -13,3 +13,13 @@ html{
     font-size: 62.5%;
     font-family: $font-packAlice;
 }
+
+body{
+    counter-reset: game;
+}
+input:checked{
+    counter-increment: game;
+}
+.total-count::after{
+    content: counter(game);
+}
