@@ -10,6 +10,11 @@ html {
 }
 
 body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
   counter-reset: game;
 }
 
@@ -19,4 +24,364 @@ input:checked {
 
 .total-count::after {
   content: counter(game);
+}
+
+.phone {
+  position: relative;
+  border: 8px solid black;
+  border-radius: 40px;
+  height: 600px;
+  width: 300px;
+  background: #A2DCF2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.layer-1 {
+  position: absolute;
+  z-index: 2;
+  width: 70px;
+  height: 450px;
+  bottom: 0;
+  border-radius: 40px;
+  left: 60px;
+}
+
+.layer-2 {
+  position: absolute;
+  z-index: 3;
+  width: 70px;
+  height: 450px;
+  bottom: 0;
+  border-radius: 40px;
+  right: 60px;
+}
+
+.layer-3 {
+  position: absolute;
+  z-index: 4;
+  width: 210px;
+  height: 400px;
+  background: #BF8E63;
+  bottom: 0;
+  border: solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.layer-4 {
+  position: absolute;
+  z-index: 5;
+  width: 70px;
+  height: 350px;
+  bottom: 0;
+  border-radius: 40px;
+  left: 30px;
+}
+
+.layer-5 {
+  position: absolute;
+  z-index: 6;
+  width: 180px;
+  height: 300px;
+  background: #BF8E63;
+  bottom: 0;
+  border: solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  border-bottom-left-radius: 30px;
+}
+
+.layer-6 {
+  position: absolute;
+  z-index: 7;
+  width: 70px;
+  height: 280px;
+  bottom: 0;
+  border-radius: 40px;
+  right: 40px;
+}
+
+.layer-7 {
+  position: absolute;
+  z-index: 8;
+  width: 150px;
+  height: 230px;
+  background: #BF8E63;
+  bottom: 0;
+  border: solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  right: 0px;
+  border-bottom-right-radius: 30px;
+}
+
+.layer-8 {
+  position: absolute;
+  z-index: 9;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.layer-9 {
+  position: absolute;
+  z-index: 10;
+  bottom: 1px;
+  left: 20px;
+}
+
+.layer-10 {
+  position: absolute;
+  z-index: 11;
+  right: 0;
+  bottom: 0;
+}
+
+/* detalles  */
+.left-ear--outer {
+  background: #F2F2F2;
+  border-radius: 90%;
+  width: 20px;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
+
+.left-ear--inner {
+  background: #F1BEBA;
+  border-radius: 90%;
+  width: 10px;
+  height: 25px;
+  position: absolute;
+  left: 15px;
+  top: -5px;
+}
+
+.rigth-ear--outer {
+  background: #F2F2F2;
+  border-radius: 90%;
+  width: 20px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+}
+
+.rigth-ear--inner {
+  background: #F1BEBA;
+  border-radius: 90%;
+  width: 10px;
+  height: 25px;
+  position: absolute;
+  right: 15px;
+  top: -5px;
+}
+
+.head {
+  background: #F2F2F2;
+  border-radius: 50%;
+  height: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+
+.head-eye {
+  background: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+}
+
+.head-eye-left {
+  left: 50px;
+}
+
+.head-eye-rigth {
+  right: 50px;
+}
+
+/* linear gradiente */
+.grass-wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 190px;
+  height: 10px;
+  border-radius: 150px;
+  background: #72A603;
+  background: linear-gradient(135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(-135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(45deg, #426001 25%, transparent 25%), linear-gradient(-45deg, #426001 25%, transparent 25%);
+  background-size: 20px 30px;
+}
+
+.grass-wall-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 160px;
+  height: 10px;
+  border-radius: 150px;
+  background: #72A603;
+  background: linear-gradient(135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(-135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(45deg, #426001 25%, transparent 25%), linear-gradient(-45deg, #426001 25%, transparent 25%);
+  background-size: 20px 30px;
+}
+
+.grass-wall-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 130px;
+  height: 10px;
+  border-radius: 150px;
+  background: #72A603;
+  background: linear-gradient(135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(-135deg, #72A603 25%, transparent 25%) -50px 0, linear-gradient(45deg, #426001 25%, transparent 25%), linear-gradient(-45deg, #426001 25%, transparent 25%);
+  background-size: 20px 30px;
+}
+
+/* making the bushes */
+.bush-01 {
+  position: absolute;
+  border-radius: 50%;
+  width: 150px;
+  height: 100px;
+  background: #72A603;
+  bottom: 2px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  left: 100px;
+}
+
+.bush-02 {
+  position: absolute;
+  border-radius: 50%;
+  width: 150px;
+  height: 100px;
+  background: #72A603;
+  bottom: 2px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  right: 100px;
+}
+
+.bush-03 {
+  position: absolute;
+  border-radius: 50%;
+  width: 150px;
+  height: 100px;
+  background: #72A603;
+  bottom: 2px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+}
+
+/* making the clouds */
+.cloud-1-left {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  left: 30px;
+  bottom: 1px;
+}
+
+.cloud-2-left {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  bottom: 30px;
+}
+
+.cloud-3-left {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  left: -20px;
+  overflow-y: hidden;
+}
+
+.cloud-4-left {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  left: -19px;
+  bottom: 1px;
+}
+
+.cloud-1-rigth {
+  position: absolute;
+  width: 110px;
+  height: 100px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  right: 30px;
+  bottom: 2px;
+}
+
+.cloud-2-rigth {
+  position: absolute;
+  width: 100px;
+  height: 120px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  right: 2px;
+  bottom: 25px;
+}
+
+.cloud-3-rigth {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  right: 1px;
+  bottom: 2px;
+}
+
+.cloud-4-rigth {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #F2F2F2;
+  border-radius: 50%;
+  bottom: 0;
+  right: 1px;
+  bottom: 25px;
 }/*# sourceMappingURL=main.css.map */

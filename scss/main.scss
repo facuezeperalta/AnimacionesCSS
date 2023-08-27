@@ -1,8 +1,73 @@
 $font-packAlice: 'Alice', serif;
 $font-packPoppins: 'Poppins', sans-serif;
+$ligthblue-color: #A2DCF2;
+$rabbit-white:#F2F2F2;
+$sand: #BF8E63;
+$grass:#72A603;
+$darkerGrass: #426001;
+$cloud01: #F2F2F2;
+$skinRabbit: #F1BEBA;
 
+@mixin cloud($w,$h){
+    width: $w;
+    height: $h;
+    background: $cloud01;
 
+}
 
+@mixin bush($w,$h){
+    width: $w;
+    height: $h;
+    background: $grass;
+    border: solid 1px black;
+}
+@mixin wall($width,$height){
+    width: $width;
+    height: $height;
+    background: $sand;
+    bottom: 0;
+    border: solid black ;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px  5px 10px rgba(0,0,0,0.5);
+}
+
+@mixin rabbit($altura){
+    width: 70px;
+    height: $altura;
+    bottom: 0;
+    border-radius: 40px;
+}
+
+@mixin rabbitEar-outer($w,$h){
+    background: $rabbit-white;
+    border-radius: 90%;
+    width: 20px;
+    height: 50px;
+    position: absolute;
+}
+
+@mixin rabbitEar-inner($w,$h){
+    background:$skinRabbit;
+    border-radius: 90%;
+    width: $w;
+    height: $h;
+    position: absolute;
+}
+
+@mixin rabbitEye{
+    background: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+@mixin zigzag{
+    background: linear-gradient(135deg,$grass 25%, transparent 25%) -50px 0,
+        linear-gradient(-135deg, $grass 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, $darkerGrass 25%, transparent 25%),
+        linear-gradient(-45deg, $darkerGrass 25%, transparent 25%);
+    background-size: 20px 30px;
+}
 *{
     box-sizing: border-box;
     margin: 0;
@@ -15,6 +80,11 @@ html{
 }
 
 body{
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
     counter-reset: game;
 }
 input:checked{
@@ -22,4 +92,259 @@ input:checked{
 }
 .total-count::after{
     content: counter(game);
+}
+
+.phone{
+    position: relative;
+    border: 8px solid black;
+    border-radius: 40px;
+    height: 600px;
+    width: 300px;
+    background:$ligthblue-color;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+   
+}
+.layer-1{
+    position: absolute; 
+    z-index: 2;  
+    @include rabbit(450px);
+    left: 60px;
+    
+}
+.layer-2{
+    position: absolute;   
+    z-index: 3;   
+    @include rabbit(450px) ;
+    right: 60px;
+}
+
+.layer-3{
+    position: absolute;   
+    z-index: 4;
+    @include wall(210px,400px );
+    left: 0;
+    right:0;
+    margin:0 auto;
+}
+
+.layer-4{
+    position: absolute;   
+    z-index: 5;
+    @include rabbit(350px);
+    left: 30px;   
+}
+
+.layer-5{
+    position: absolute;   
+    z-index: 6;
+    @include wall(180px,300px );
+    bottom: 0;
+    border-bottom-left-radius: 30px;
+}
+
+.layer-6{
+    position: absolute;   
+    z-index: 7;
+    @include rabbit(280px);
+    right: 40px;
+}
+
+.layer-7{
+    position: absolute;   
+    z-index: 8;
+    @include wall(150px,230px);
+    right: 0px;
+    border-bottom-right-radius: 30px;
+}
+
+.layer-8{
+    position: absolute;   
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.layer-9{
+    position: absolute;   
+    z-index: 10;
+    
+    bottom: 1px;
+    left:20px;
+}
+
+.layer-10{
+    position: absolute;   
+    z-index: 11;
+    
+    right: 0;
+    bottom: 0;
+}
+
+
+/* detalles  */
+
+.left-ear--outer{
+    @include rabbitEar-outer(20px,50px);
+    left: 10px;
+    top: -10px;
+}
+.left-ear--inner{
+    @include rabbitEar-inner(10px, 25px);
+    left: 15px;
+    top: -5px;
+    
+}
+
+.rigth-ear--outer{
+    @include rabbitEar-outer(20px,50px );
+    right: 10px;
+    top:-10px;
+}
+
+.rigth-ear--inner{
+    @include rabbitEar-inner(10px, 25px);
+    right: 15px;
+    top: -5px;
+}
+
+.head{
+    background: $rabbit-white;
+    border-radius: 50%;
+    height: 80px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+}
+
+.head-eye{
+    @include rabbitEye();
+    position: absolute;
+    top: 15px;
+}
+
+.head-eye-left{
+    left: 50px;
+}
+.head-eye-rigth{
+    right:50px;
+}
+
+/* linear gradiente */
+@mixin grass-setup($w,$h){
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: $w;
+    height: $h;
+    border-radius: 150px;
+    background: $grass;
+}
+.grass-wall{
+   @include grass-setup(190px,10px);
+   @include zigzag();
+}
+
+.grass-wall-2{
+    @include grass-setup(160px,10px);
+    @include zigzag();
+}
+
+.grass-wall-3{
+    @include grass-setup(130px,10px );
+    @include zigzag();
+}
+
+
+/* making the bushes */
+@mixin bushSetup($w,$h){
+    position: absolute;
+    border-radius: 50%;
+    width: $w;
+    height: $h;
+    background: $grass;
+    bottom: 2px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+}
+
+
+.bush-01{
+   @include bushSetup(150px,100px );
+   left: 100px;
+}
+
+.bush-02{
+    @include bushSetup(150px, 100px);
+    right: 100px;
+}
+
+.bush-03{
+    @include bushSetup(150px,100px );
+    bottom: 50px;
+}
+
+/* making the clouds */
+
+@mixin cloudSetup($w,$h){
+    position: absolute;
+    width: $w;
+    height: $h;
+    background: $cloud01;
+    border-radius: 50%;
+    bottom: 0;
+}
+
+.cloud-1-left{
+   @include cloudSetup(100px,80px );
+   left: 30px;
+   bottom: 1px;
+}
+.cloud-2-left{
+    @include cloudSetup(100px,100px);
+    bottom: 30px;
+}
+.cloud-3-left{
+    @include cloudSetup(100px,80px );
+    left: -20px;
+    overflow-y: hidden;
+}
+
+.cloud-4-left{
+    @include cloudSetup(50px, 50px);
+    left:-19px;
+    bottom: 1px;
+}
+
+.cloud-1-rigth{
+    @include cloudSetup(110px, 100px);
+    right: 30px;
+    bottom: 2px;
+}
+
+.cloud-2-rigth{
+    @include cloudSetup(100px,120px);
+    right: 2px;
+    bottom: 25px;
+
+}
+
+.cloud-3-rigth{
+    @include cloudSetup(50px,50px );
+    right: 1px;
+    bottom: 2px;
+}
+
+.cloud-4-rigth{
+    @include cloudSetup(50px,50px );
+    right: 1px;
+    bottom: 25px;
 }
